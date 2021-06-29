@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   {% if data %}
+        {% for value in data%}
+            <h1>{{value.nombre}}</h1>
+            <h1>{{value.email}}</h1>
+            <h1>{{value.fecha_publicacion}}</h1>
+        {%endfor%}
+   {% else %}
+    <h1>No existe el autor</h1>
+   {%endif%}
+</body>
+</html>

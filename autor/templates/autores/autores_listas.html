@@ -1,0 +1,41 @@
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- CSS only -->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <title>Document</title>
+    </head>
+    <body>
+         <div class="container">
+             <h1>Lista de autores</h1>
+
+          {% if mensaje %}
+            <h1>{{mensaje}}</h1>
+          {%endif%}
+         {% for value in autores %}
+          <li><a href="/autores/{{value.id}}/">{{value.nombre}}</a></li>
+         {%endfor%}
+
+             <form action="/autores/" method="POST">
+                 {% csrf_token %}
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" name="nombre">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
+                 <div class="form-group">
+        <label for="fecha_publicacion">Email</label>
+        <input type="date" class="form-control" id="fecha_publicacion" name="fecha_publicacion">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+         </div>
+    </body>
+    </html>
